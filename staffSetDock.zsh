@@ -2,7 +2,7 @@
 
 # Author: Andrew W. Johnson
 # Date: 2020.05.05.
-# Version 1.10
+# Version 1.11
 # Organization: Stony Brook Univeristy/DoIT
 
 # This script will do an initial set of the user's dock. It makes use of the utility dockutil 
@@ -42,7 +42,8 @@ if [ ! -f ${myHome}/Library/dockutil ]; then
 	/usr/local/bin/dockutil -v --add "/System/Applications/System Preferences.app" --no-restart $myHome
 	/usr/local/bin/dockutil -v --add "/Applications/Self Service.app" --no-restart $myHome
 	/usr/local/bin/dockutil -v --add '~/Downloads' --view list --display folder $myHome
-
+	/usr/local/bin/dockutil -v --add smb://mysbfiles.campus.stonybrook.edu/~${myUser} --label 'MySBFiles' ${myHome}
+	
 	/usr/bin/touch ${myHome}/Library/dockutil
 else
 	/bin/echo "dockutil has already run for user ${myUser}"
